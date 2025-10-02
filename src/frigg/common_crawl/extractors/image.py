@@ -1,4 +1,4 @@
-from frigg.common_crawl.base import Extractor
+from frigg.common_crawl.extractors.base import Extractor
 
 
 class ImageExtractor(Extractor):
