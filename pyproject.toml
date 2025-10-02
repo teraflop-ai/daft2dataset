@@ -1,6 +1,6 @@
 [project]
 name = "frigg"
-version = "0.1.01"
+version = "0.1.02"
 description = "Convert common crawl to multimodal datasets."
 readme = "README.md"
 requires-python = ">=3.10"
