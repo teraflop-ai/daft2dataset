@@ -8,7 +8,6 @@ class ImageExtractor(Extractor):
         return valid_path and valid_alt
 
     def extract_from_links(self, links):
-        """Extract image from links"""
         filtered_links = [
             {"url": link["url"], "alt": link["alt"]}
             for link in links
