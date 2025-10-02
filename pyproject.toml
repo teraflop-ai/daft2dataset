@@ -1,5 +1,5 @@
 [project]
-name = "daft2dataset"
+name = "frigg"
 version = "0.1.0"
 description = "Convert common crawl to multimodal datasets."
 readme = "README.md"
@@ -19,6 +19,7 @@ classifiers = [
 dependencies = [
     "daft>=0.6.3",
     "pysimdjson>=7.0.2",
+    "xxhash>=3.5.0",
 ]
 
 [tool.uv]
