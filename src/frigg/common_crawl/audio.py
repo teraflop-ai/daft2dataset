@@ -6,7 +6,7 @@ import xxhash
 from daft import col
 
 
-class Images:
+class Audios:
     def __init__(self):
         pass
 
@@ -48,17 +48,18 @@ class Images:
         df = df.drop_duplicates("hash")
         return df
 
-    def valid_image_link(self, link):
-        valid_path = link.get("path", "") == "IMG@/src"
-        valid_alt = len(link.get("alt", "")) > 0
-        return valid_path and valid_alt
+    def valid_audio_link(self, link):
+        valid_audio = any(
+            link.get("url", "").endswith(ext)
+            for ext in [".ogg", ".wav", ".mp3", ".flac", ".m4a"]
+        )
+        return valid_audio
 
-    def extract_image_from_links(self, links):
-        """Extract image from links"""
+    def extract_audio_from_links(self, links):
         filtered_links = [
-            {"url": link["url"], "alt": link["alt"]}
+            {"url": link["url"], "alt": link.get("text", "")}
             for link in links
-            if self.valid_image_link(link)
+            if self.valid_audio_link(link)
         ]
         return filtered_links
 
@@ -91,7 +92,7 @@ class Images:
             return
         links = metadata["Links"]
         base_url = envelope["WARC-Header-Metadata"]["WARC-Target-URI"]
-        filtered_links = self.extract_image_from_links(links)
+        filtered_links = self.extract_audio_from_links(links)
         filtered_links = self.make_links_absolute(filtered_links, base_url)
         filtered_links = [
             link

@@ -1,1 +1,6 @@
-# daft-io
+# Frigg
+
+Installation
+```
+uv pip install frigg
+```
