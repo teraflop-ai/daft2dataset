@@ -77,6 +77,11 @@ class Extractor:
             return
         links = metadata["Links"]
         base_url = envelope["WARC-Header-Metadata"]["WARC-Target-URI"]
+        if "Head" in metadata and "Base" in metadata["Head"]:
+            try:
+                base_url = urljoin(base_url, metadata["Head"]["Base"])
+            except ValueError:
+                pass
         filtered_links = self.extract_from_links(links)
         filtered_links = self.make_links_absolute(filtered_links, base_url)
         filtered_links = [
