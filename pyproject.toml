@@ -18,7 +18,9 @@ classifiers = [
 ]
 dependencies = [
     "daft>=0.6.3",
+    "fake-useragent>=2.2.0",
     "pysimdjson>=7.0.2",
+    "urllib3>=2.5.0",
     "xxhash>=3.5.0",
 ]
 
