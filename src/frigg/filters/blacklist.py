@@ -3,6 +3,14 @@ from urllib.parse import urlparse
 import daft
 from daft import col
 
+KEYWORD_BLACKLIST = ["xxx", "porn", "sex", "adult", "kif.tube"]
+
+@daft.udf(return_dtype=daft.DataType.bool())
+def has_blacklisted_keyword(url: str) -> bool:
+    if not url:
+        return False
+    url = url.lower()
+    return any(word in url for word in KEYWORD_BLACKLIST)
 
 @daft.func(return_dtype=daft.DataType.string())
 def extract_domain(url: str) -> str:
