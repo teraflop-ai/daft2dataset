@@ -6,4 +6,7 @@ url = "https://data.commoncrawl.org/crawl-data/CC-MAIN-2025-33/segments/17541512
 df = daft.read_warc(url)
 extractor = VideoExtractor()
 df = extractor(df)
+df = df.select("url")
 df.show()
+
+print(df.to_pylist())
