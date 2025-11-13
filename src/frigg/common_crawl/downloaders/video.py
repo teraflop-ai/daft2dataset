@@ -1,6 +1,6 @@
-from typing import Optional
 import os
 import uuid
+from typing import Optional
 
 import daft
 from daft import DataType, col
