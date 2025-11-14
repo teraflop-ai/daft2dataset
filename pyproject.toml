@@ -20,6 +20,7 @@ dependencies = [
     "fake-useragent>=2.2.0",
     "pandas>=2.3.3",
     "pysimdjson>=7.0.2",
+    "streamlink>=8.0.0",
     "urllib3>=2.5.0",
     "xxhash>=3.5.0",
 ]
